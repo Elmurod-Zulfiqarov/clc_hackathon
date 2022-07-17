@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="text-danger"><b>Delete List</b></h3>
+
+<p>Are you sure you want to delete the list <i>{{ object.title }}</i>?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary m-2">Yes, delete.</button>
+</form>
+<button type="button" class="btn btn-primary m-2">
+    <a href="{% url 'index' %}" class="text-decoration-none text-light">Cansel</a>
+</button>
+
+{% endblock %}
+

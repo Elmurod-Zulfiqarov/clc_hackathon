@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <div>
+        <div>
+            <h3 class="text-success"><b>Edit list:</b></h3>
+            <h5><b>{{ todo_list.title | upper }}</b></h5>
+        </div>
+        <ul>
+            {% for todo in object_list %}
+            <li class="my-2">
+                <div>
+                    <a href="{% url 'item-update' todo_list.id todo.id %}" class="text-decoration-none">
+                        {{ todo.title }} (Due {{ todo.due_date | date:"l, F j"}})
+                    </a>
+                </div>
+            </li>
+            {% empty %}
+            <p>There are no to-do items in this list.</p>
+            {% endfor %}
+        </ul>
+        <p>
+            <button type="button" class="btn btn-primary m-2">
+                <a href="{% url 'item-add' todo_list.id %}" class="text-decoration-none text-light">
+                    Add a new item
+                </a>
+            </button>
+            <button type="button" class="btn btn-primary m-2">
+                <a href="{% url 'list-delete' todo_list.id %}" class="text-decoration-none text-light">
+                    Delete this list
+                </a>
+            </button>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-6">
+			{% if object_list %}
+				<h3 class="text-warning"><b>All my lists</b></h3>
+			{% endif %}
+			<ul>
+				{% for todolist in object_list %}
+				<li class="p-1">
+					<div>
+						<a href="{% url 'list' todolist.id %}" class="text-decoration-none"> {{ todolist.title }}</a>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="col-3">
+			<h3><a href="/users" class="text-decoration-none text-primary">Accounts about</a></h3>
+		</div>
+		<div class="col-3">
+			<h4 class="text-success"><b>Add new lists!</b></h4>
+			<p>
+				<button type="button" class="btn btn-primary m-2"><a href="{% url 'list-add' %}" class="text-decoration-none btn btn-primary">Add a new list</a></button>
+			</p>
+		</div>
+	</div>
+
+{% endblock %}

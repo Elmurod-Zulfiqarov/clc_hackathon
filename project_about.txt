@@ -1,0 +1,11 @@
+			PERSONAL DEVELOPMENT
+	1. Nima qilishni aniqlab olish	
+	2. Kod yozishni boshlash 
+
+ 	1. My plan a year:
+ 		my todolist: title
+ 		my todoitem: title, description, cretaed_at, date_limit(default=year.now()), is_success, todolist, **users, 
+ 		
+ 		**users: fname, lname, bio, contact(email or phone), todolist, point, rating
+ 		
+ 			
